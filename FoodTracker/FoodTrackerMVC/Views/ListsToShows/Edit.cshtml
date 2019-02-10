@@ -1,0 +1,41 @@
+﻿@model FoodTrackerMVC.Models.ListsToShow
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>ListsToShow</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdList" />
+            <div class="form-group">
+                <label asp-for="FkProduct" class="control-label"></label>
+                <input asp-for="FkProduct" class="form-control" />
+                <span asp-validation-for="FkProduct" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkUser" class="control-label"></label>
+                <input asp-for="FkUser" class="form-control" />
+                <span asp-validation-for="FkUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_name" class="control-label"></label>
+                <input asp-for="product_name" class="form-control" />
+                <span asp-validation-for="product_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

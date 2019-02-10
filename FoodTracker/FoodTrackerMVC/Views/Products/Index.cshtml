@@ -1,0 +1,203 @@
+﻿@model IEnumerable<FoodTrackerMVC.Models.Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h2>Recomandations for you </h2>
+        <div>
+            @foreach (var recomandation in ViewBag.Recomandations)
+            {
+                <div>
+                    @(recomandation)
+                </div>
+            }
+
+         
+            @*@foreach (Recommendation rec in ViewBag.Recomandations)
+            {
+                foreach (KeyValuePair<string, Object> entry in rec.Values)
+                    {
+                    var propertyName = entry.Key;
+                    var propertyValue = entry.Value;
+                    <div>
+                        @(propertyName)
+                        @(propertyValue)
+                    </div>
+                  
+                   }
+                <div>
+                    @(rec))
+                </div>    
+            }*@
+        </div>
+        <h2>Products</h2>
+        <select name="id_category" class="form-control" id="categorySelectId" onchange="categoryChanged(this)">
+            <option>All</option>
+            @foreach (FoodTrackerMVC.Models.Product_categories category in ViewBag.Categories)
+            {
+                <option value="@(category.id_category)"> @(category.category_name)</option>
+            }
+
+
+
+        </select>
+        <br />
+        <p class="pp1">
+            <a asp-action="Create">Create New Product</a>
+        </p>
+        <!-- <div>
+         <p class="pp1">Add image of a new product </p>
+         <input type="file" onchange="addImage()"><br><br/>
+         <img src="" height="100" width="100" alt="Image preview...">
+     </div>
+        -->
+    </div>
+    <div class="panel-body">
+        <div style="width:70%; float:left;">
+
+            <!-- <button class="btn btn-danger" onclick="incrementColumn()" >PARTIAL VIEW TEST</button> -->
+
+            <table class="table table-hover tableProduct pp1">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.unit_of_measurement)
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.unit_of_measurement)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.id_product">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id_product">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id_product">Delete</a> |
+                                @if (ViewBag.categoryFilter == null)
+                                {
+                                    <a asp-action="AddList" asp-route-id="@item.id_product">AddList</a>
+                                }
+                                else
+                                {
+                                    <a asp-action="AddList" asp-route-id="@item.id_product" asp-route-categoryFilter="@ViewBag.categoryFilter">AddList</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container shoppingListClass pp1" style="width:25%; float:right">
+            <p class="pp2"> Add items to your list :)</p>
+
+            
+            <div id="shoppingListDiv">
+
+                @*<partial name="_ShoppingList" model="@ViewBag.Products" />*@
+
+                @foreach (FoodTrackerMVC.Models.Product product in ViewBag.Products)
+                {
+                    @if (ViewBag.categoryFilter == null)
+                    {
+                        <div class="pp1 productList">
+                            @product.product_name  |  @product.quantity @product.unit_of_measurement | @product.Kcal Kcal<a asp-action="DeleteList" asp-route-productId="@product.id_product">
+                                x
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            @product.product_name |  @product.quantity @product.unit_of_measurement | @product.Kcal Kcal
+                            <a asp-action="DeleteList" asp-route-productId="@product.id_product" asp-route-categoryFilter="@ViewBag.categoryFilter">
+                                x
+
+                            </a>
+                        </div>
+                    }
+
+                }
+                <br />
+                <br />
+
+                <a asp-action="incrementColumn">Save list</a>
+                <div>
+                    @Html.Raw(TempData["msg"])
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+ 
+	function categoryChanged(e)
+	{
+		window.location.href = "Products?categoryFilter=" + e.value;
+	}
+
+	function updateShoppingList() {
+		console.log("hit");
+		$.ajax({
+			url: '/Home/ShoppingList',
+			success: function (data) {
+				$('#shoppingListDiv').html(data);
+			}
+			});
+    }
+
+    function clearList() {
+        $.ajax({
+            url: '/Home/Product_list',
+           
+        });
+    }
+    $(document).ready(function () {
+        $("#submitList").on("click", function () {
+            alert('Ai cumparat cam multe!');
+        });
+
+    });
+
+    function addImage() {
+        var preview = document.querySelector('img'); //selects the query named img
+        var file = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file); //reads the data as a URL
+        } else {
+            preview.src = "";
+        }
+    }
+</script>

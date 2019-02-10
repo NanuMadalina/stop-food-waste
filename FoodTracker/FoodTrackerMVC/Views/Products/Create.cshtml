@@ -1,0 +1,77 @@
+﻿@model FoodTrackerMVC.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="panel">
+	<div class="panel-heading">
+		<h2>Create</h2>
+	</div>
+	<div class="panel-body">
+		<h4>Product</h4>
+		<hr />
+		<div class="row">
+			<div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="product_name" class="control-label"></label>
+                        <input asp-for="product_name" class="form-control" />
+                        <span asp-validation-for="product_name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="product_description" class="control-label"></label>
+                        <input asp-for="product_description" class="form-control" />
+                        <span asp-validation-for="product_description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="quantity" class="control-label"></label>
+                        <input asp-for="quantity" class="form-control" />
+                        <span asp-validation-for="quantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="unit_of_measurement" class="control-label"></label>
+                        <input asp-for="unit_of_measurement" class="form-control" />
+                        <span asp-validation-for="unit_of_measurement" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Kcal" class="control-label"></label>
+                        <input asp-for="Kcal" class="form-control" />
+                        <span asp-validation-for="Kcal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="id_category" class="control-label"></label>
+                        <select name="id_category" class="form-control">
+                            @foreach (FoodTrackerMVC.Models.Product_categories category in ViewBag.Categories)
+                            {
+                                <option value="@(category.id_category)"> @(category.category_name)</option>
+                            }
+
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="valability" class="control-label"></label>
+                        <input asp-for="valability" class="form-control" />
+                        <span asp-validation-for="valability" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="frequency_usage" class="control-label"></label>
+                        <input asp-for="frequency_usage" class="form-control" />
+                        <span asp-validation-for="frequency_usage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<a asp-action="Index">Back to List</a>
+	</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

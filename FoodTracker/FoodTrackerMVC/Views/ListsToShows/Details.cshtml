@@ -1,0 +1,36 @@
+﻿@model FoodTrackerMVC.Models.ListsToShow
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ListsToShow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FkProduct)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkProduct)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FkUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkUser)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.product_name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.product_name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdList">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

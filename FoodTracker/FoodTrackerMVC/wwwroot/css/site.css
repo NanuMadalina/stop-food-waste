@@ -1,0 +1,319 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /*background-image: linear-gradient(rgba(137, 115, 62, 0.50),rgb(62, 72, 67)), url('../images/ananas.jpg');*/
+    background-image: url('../images/5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+
+    .body-content {
+    padding-top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+	color: orange;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.container-register {
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+}
+
+.centerdiv {
+    left: 416px;
+}
+
+
+.register-button {
+    margin-bottom: 20px;
+    margin-left: 154px;
+}
+
+
+    .register-button:hover {
+        background-color: #999999;
+    }
+
+
+#profilepicture {
+	width: 140px;
+	border-radius: 50%;
+	position: relative;
+	top: 16px;
+	left: 538px;
+}
+
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+
+
+.about {
+	
+}
+
+.grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto auto;
+    background: rgba(255, 255, 255, 0.0);
+    grid-column-gap: 10px;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(66, 66, 66, 0.0);
+    border: none;
+    color: #49c4af;
+    text-align: center;
+   
+}
+
+
+
+.pp {
+	font-family: 'Kalam', cursive;
+	color: #49c4af;
+	font-size: 16px;
+}
+
+.imgTeam {
+    height: 120px;
+    width: 120px;
+    border-radius: 90px;
+    
+}
+
+.about-page {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5%;
+}
+
+.register-login-subtitle {
+	padding-left: 43px;
+	font-size: 40px;
+	font-weight: bolder;
+	text-align: center;
+}
+
+
+.panel {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.tableProduct {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+
+
+/* contact page */
+
+.container1 {
+    width: 900px;
+    margin: 250px auto 0;
+    display: flex;
+}
+
+.container1 .box1 {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 10px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px rgba(0,7,10,1);
+}
+
+.container1 .box1 .icon {
+    width: 100%;
+    height: 100%;
+    background: #00171d;
+    transition: 0.5s;
+}
+
+.container1 .box1 .icon .fa {
+    font-size: 4em;
+    line-height: 100px;
+    color: #0ff;
+}
+
+.container1 .box1:hover .icon {
+    transform: scale(0);
+}
+
+.container1 .box1 .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #03a9f4;
+    transition: 0.5s;
+    transform: scale(2);
+    opacity: 0;
+}
+
+.container1 .box1:hover .details {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.container1 .box1 .details h3 {
+    margin: 0;
+    padding: 0;
+    line-height: 100px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.container1 .box1 .details:nth-child(2) .details {
+    background: #e91e63;
+}
+
+.container1 .box1 .details:nth-child(2) .details {
+    background: #607d8b;
+}
+
+
+/*item active*/
+
+.item {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+.active {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+
+/*
+.colorText li a {
+    color: black !important;
+}
+
+.colorText li a :hover {
+    color: black !important;
+}
+
+a title {
+    color: black !important;
+}
+
+    */
+
+.navbar-inverse .navbar-text {
+    color: #fff;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    font-family: Arial;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+/*
+    .navbar-inverse .navbar-nav > li > a:hover,
+    .navbar-inverse .navbar-nav > li > a:focus {
+        color: forestgreen;
+    }
+
+    */
+.buttonb{
+    color: #fff !important;
+}
+
+a:hover {
+    color: #ff912b !important;
+}
+
+
+.buttonColor {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+}
+    .buttonColor:hover {
+        color: #ff912b !important;
+    }
+
+
+.navbar {
+    background-color: #7a7a7a !important;
+    border: none !important;
+}
+
+
+.shoppingListClass {
+margin-top: auto;
+
+}
+
+
+.productList{
+    display: list-item;
+    list-style-type: disc;
+    border-bottom: 1px solid #dbdbdb;
+    
+
+    
+}
+
+.pp1 {
+    font-family: 'Kalam', cursive;
+    color: #000;
+    font-size: 13px;
+    padding: 5px;
+}
+
+.pp2 {
+    border-bottom: 2px solid #dbdbdb;
+    padding: 7px;
+}
+
+.trr{
+    padding: 1px !important;
+}
+

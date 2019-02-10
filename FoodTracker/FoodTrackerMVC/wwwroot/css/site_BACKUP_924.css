@@ -1,0 +1,127 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+<link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" >
+body {
+<<<<<<< HEAD
+	padding-top: 50px;
+	padding-bottom: 20px;
+	
+=======
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url("../images/back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+>>>>>>> 1b4cb8622dd182c4936c3958cdcea196af4ca31e
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+<<<<<<< HEAD
+.body-content {
+	padding-top: 200px;
+=======
+
+    .body-content {
+    /*padding-top: 200px;*/
+>>>>>>> 1b4cb8622dd182c4936c3958cdcea196af4ca31e
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.container-register {
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+}
+
+.centerdiv {
+    left: 451px;
+}
+
+
+.register-button {
+    margin-bottom: 20px;
+    margin-left: 154px;
+}
+
+
+    .register-button:hover {
+        background-color: #999999;
+    }
+
+
+#profilepicture {
+    width: 140px;
+    border-radius: 50%;
+    position: relative;
+    top: 16px;
+    left: 603px;
+}
+
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+<<<<<<< HEAD
+.about {
+	margin-top: -100px;
+}
+
+.grid-container {
+	display: grid;
+	width: 100%;
+	grid-template-columns: auto auto auto auto auto;
+	background-color: #ffffff;
+	grid-column-gap: 10px;
+	padding: 10px;
+}
+
+.grid-item {
+	background-color: rgba(66, 66, 66, 0.0);
+	border: none;
+	color: #49c4af;
+	text-align: center;
+}
+
+
+
+.pp {
+	font-family: 'Kalam', cursive;
+	color: #49c4af;
+	font-size: 16px;
+}
+
+.imgTeam {
+	height: 120px;
+	width: 120px;
+	border-radius: 90px;
+}
+=======
+@media (min-width: 1200px) {
+    .container {
+        min-width: 100%!important;
+    }
+}
+>>>>>>> 1b4cb8622dd182c4936c3958cdcea196af4ca31e

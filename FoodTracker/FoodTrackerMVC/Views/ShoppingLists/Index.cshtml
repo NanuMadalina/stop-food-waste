@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FoodTrackerMVC.Models.ShoppingList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdListHistory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProduct)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdListHistory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProduct)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdShoppingList">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdShoppingList">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdShoppingList">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

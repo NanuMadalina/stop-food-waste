@@ -1,0 +1,39 @@
+﻿@model FoodTrackerMVC.Models.ListsToShow
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ListsToShow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FkProduct)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkProduct)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FkUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkUser)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.product_name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.product_name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdList" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+﻿<div>
+        THIS IS THE SHOPPING LIST
+        !!
+
+    </div>
+
+@*@model IEnumerable<Product>
+
+@foreach (FoodTrackerMVC.Models.Product product in Model)
+{
+    //productList.add().ceva
+    <div>@product.product_name</div>
+}*@

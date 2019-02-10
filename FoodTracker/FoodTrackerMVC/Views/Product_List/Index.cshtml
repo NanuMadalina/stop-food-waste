@@ -1,0 +1,83 @@
+﻿@model IEnumerable<FoodTrackerMVC.Models.Product_List>
+@{
+    ViewData["Title"] = "Product lists";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h2>History</h2>
+        <select name="id_category" class="form-control" id="categorySelectId" onchange="categoryChanged(this)">
+            <option>All</option>
+
+            @foreach (var index in ViewBag.Listsdsd)
+            {
+                <option value="@(index)"> @(index)</option>
+            }
+
+        </select>
+        <br />
+        <p>
+           
+        </p>
+		
+    </div>
+    <div class="panel-body">
+        <div style="width:70%; float:left;">
+
+            <!-- <button class="btn btn-danger" onclick="incrementColumn()" >PARTIAL VIEW TEST</button> -->
+
+            <table class="table table-hover tableProduct pp1">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_name)
+                        </th>
+
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_name)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+    function clearDiv() {
+        var x = document.getElementById('shoppingListDiv');
+        x.innerHTML = "";
+    }
+    function categoryChanged(e) {
+        window.location.href = "Product_list?IDSFilter=" + e.value;
+    }
+
+    function updateShoppingList() {
+        console.log("hit");
+        $.ajax({
+            url: '/Home/Product_list',
+            success: function (data) {
+                $('#shoppingListDiv').html(data);
+            }
+        });
+    }
+
+    function clearList() {
+        $('productList').empty();
+    }
+</script>
